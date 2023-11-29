@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Jogo de Adivinhação</title>
+</head>
+<body>
+    <div class="container">
+        <h1>Jogo da Forca</h1>
+        <p>Tente adivinhar a palavra:</p>
+        <div id="word-container"></div>
+        <div>Letras digitadas</div>
+        <div id="letras-Digitadas"></div>
+        <label for="guess">Sua tentativa:</label>
+        <input type="text" id="guess" maxlength="1">
+        <button onclick="checkGuess()">Verificar</button>
+        <div>Tentativas:</div>
+        <div id="quant-tentativas"></div>
+        <p id="message"></p>
+        <button onclick="reiniciarJogo()">Reiniciar Jogo</button>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
