@@ -17,10 +17,12 @@ var letrasAdivinhadas = Array(palavraSecreta.length).fill("_");
 function atualizarPalavra() {
     const wordContainer = document.getElementById("word-container");
     wordContainer.textContent = letrasAdivinhadas.join(" ");
+    verificaErro();
 }
 var letrasD = [];
 var tentativas = 1;
 var erros = 0;
+var situacaoImg ;
 
 //mostra as letras digitadas 
 function mostraLetrasDigitadas() {
@@ -38,6 +40,8 @@ function reiniciarJogo() {
     letrasD = [];
     tentativas = 1;
     erros = 0;
+    situacaoImg = "none";
+
     mostraLetrasDigitadas();
     // Palavra que o jogador precisa adivinhar
     palavraSecreta = listaPalavras[novaPosicao];
@@ -50,7 +54,25 @@ function reiniciarJogo() {
     document.getElementById("message").textContent = "";
 }
 
+// function mostraImagem(img) {
+//     var minhaDiv = document.getElementById(img);
+//     if (minhaDiv.style.display === "none") {
+//         minhaDiv.style.display = "block";
+//     } else {
+//         minhaDiv.style.display = "none";
+//     }
+// }
 
+function verificaErro() {
+    var img1 = document.getElementById("img1");
+    switch (erros) {
+        case 1:
+            img1.style.display = "block";
+            break;
+        default:
+            break;
+    }
+}
 
 // Função chamada ao clicar no botão "Verificar"
 function checkGuess() {
@@ -58,6 +80,8 @@ function checkGuess() {
     const guess = guessInput.value.toLowerCase();
 
     mostraLetrasDigitadas(letrasD.push(guess));
+
+    verificaErro();
 
     if (guess.length === 1 && /^[a-z]$/.test(guess)) {
         // Adivinhação correta
