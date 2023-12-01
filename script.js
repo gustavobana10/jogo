@@ -7,7 +7,7 @@ function sortearPosicao() {
 }
 
 // Palavra que o jogador precisa adivinhar
-var palavraSecreta = listaPalavras[sortearPosicao()];
+var palavraSecreta = listaPalavras[sortearPosicao(listaPalavras)];
 
 // Inicializa o array de letras corretamente adivinhadas
 var letrasAdivinhadas = Array(palavraSecreta.length).fill("_");
@@ -20,6 +20,7 @@ function atualizarPalavra() {
 }
 var letrasD = [];
 var tentativas = 1;
+var erros = 0;
 
 //mostra as letras digitadas 
 function mostraLetrasDigitadas() {
@@ -27,6 +28,8 @@ function mostraLetrasDigitadas() {
     letras.textContent = letrasD;
     const tent = document.getElementById("quant-tentativas");
     tent.textContent = tentativas;
+    const tentErros = document.getElementById("quant-erros");
+    tentErros.textContent = erros;
 }
 
 // Função para reiniciar o jogo
@@ -34,6 +37,7 @@ function reiniciarJogo() {
     var novaPosicao = sortearPosicao();
     letrasD = [];
     tentativas = 1;
+    erros = 0;
     mostraLetrasDigitadas();
     // Palavra que o jogador precisa adivinhar
     palavraSecreta = listaPalavras[novaPosicao];
@@ -45,6 +49,8 @@ function reiniciarJogo() {
 
     document.getElementById("message").textContent = "";
 }
+
+
 
 // Função chamada ao clicar no botão "Verificar"
 function checkGuess() {
@@ -69,7 +75,13 @@ function checkGuess() {
                 document.getElementById("message").textContent = "Parabéns! Você venceu!";
             }
         } else {
-            document.getElementById("message").textContent = "Tente novamente. Letra incorreta.";
+            if (erros > 4) {
+                document.getElementById("message").textContent = "Game Over, tente novamente!";
+            }
+            else {
+                document.getElementById("message").textContent = "Tente novamente. Letra incorreta.";
+            }
+            erros++;
         }
     } else {
         document.getElementById("message").textContent = "Por favor, insira uma letra válida.";

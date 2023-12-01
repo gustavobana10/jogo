@@ -31,3 +31,26 @@ button {
     padding: 10px;
     font-size: 16px;
 }
+
+.imagens{
+    position: relative;
+    margin-top: 20px;
+    align-items: center;
+}
+
+.imagens img{
+    position: absolute;
+    
+}
+
+.imagem2{
+    margin-top: 100px;
+}
+
+.imagem3{
+    margin-top: 100px;
+}
+
+.imagem4{
+    margin-top: 150px;
+}
