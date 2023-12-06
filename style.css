@@ -45,18 +45,45 @@ button {
 }
 
 .imagem1 {
-    display: block;
+    display: none;
 }
 
 .imagem2 {
     margin-top: 100px;
-   
+
+   display: none;
 }
 
 .imagem3 {
     margin-top: 100px;
+    display: none;
 }
 
 .imagem4 {
     margin-top: 150px;
+    display: none;
+}
+
+.di-dicas{
+    margin-bottom: 20px;
+}
+
+button{
+    display: block;
+}
+
+.container {
+    text-align: center;
+    margin-top: 20px; /* Adiciona um espaço no topo para melhorar a aparência */
+}
+
+.container {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#but, button {
+    margin-top: 10px;
 }

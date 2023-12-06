@@ -11,11 +11,16 @@
         <h1>Jogo da Forca</h1>
         <p>Tente adivinhar a palavra:</p>
         <div id="word-container"></div>
+        <div class="di-dicas">
+            Dica: 
+            <div id="dica"></div>
+        </div>
+        <div id="dica"></div>
         <div>Letras digitadas</div>
         <div id="letras-Digitadas"></div>
         <label for="guess">Sua tentativa:</label>
         <input type="text" id="guess" maxlength="1">
-        <button onclick="checkGuess()">Verificar</button>
+        <button onclick="checkGuess()" id="but">Verificar</button>
         <div>Tentativas:</div>
         <div id="quant-tentativas"></div>
         <div>Erros:</div>
